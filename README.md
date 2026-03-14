@@ -2,9 +2,20 @@
 
 Aulas de Desenvolvimento de Software I com o professor João Siles utilizando Java.
 
+  
+
 # Configuração principal do repositório do GH na máquina
 
 Para fazer a configuração do repositório na máquina utilizando o git bash, são necessários alguns códigos, sendo eles:
+
  - $ git config --global user.name '_nome_'
  - $ git config --global user.email _email_
- - $ git clone _endereço copiado do repositório desejado_
+ - $ git clone _URL copiada do repositório desejado_
+
+#  Instalação do java na máquina
+
+Para realizar essa instalação, é necessário acessar o site "**Adoptium**", e nele, baixar o OpenJDK. Ao fazer isso, você executa o instalador e finaliza a instalação. Assim que completo, você precisa entrar no seu gerenciador de arquivos, buscar a pasta do Adoptium onde o Java foi instalado e copiar o caminho dessa pasta. 
+Quando baixado o OpenJDK, geralmente, o PATH já vem configurado, porém, é importante checarmos isso antes de qualquer tipo de uso e, para isso, digitamos "**Editar as variáveis de ambiente do sistema**" no Windows e, ao iniciar, você precisa clicar em "Variáveis do ambiente", no canto inferior direito da janela. Após isso, seção "**Variáveis do sistema**", você vai procurar por "**PATH**" e, logo em seguida, em editar. Ao fazer isso, você precisa ver se há o caminho da sua pasta do adoptium. Se sim, está tudo certo. Porém, caso não haja qualquer tipo de caminho ligado ao OpenJDK recém baixado, **você precisa clicar em "Novo" e colar esse caminho que foi copiado na pasta do adoptium**, salvando e confirmando em todos "Ok" 
+
+Para confirmar que tudo está correto após todas essas etapas, apenas é necessário abrir o **CMD** e digitar:
+**java --version**
