@@ -21,3 +21,22 @@ Quando baixado o OpenJDK, geralmente, o PATH já vem configurado, porém, é imp
 Para confirmar que tudo está correto após todas essas etapas, apenas é necessário abrir o **CMD** e digitar:
 
 **java --version**
+
+# Explicação do código em Java (Hello world)
+
+**O código na qual estamos falando é:**
+
+package aula01;
+
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
+
+O código apresentado é um programa simples em Java que exibe uma mensagem ("Hello World) na tela. Ele começa com **package aula01;**, que indica que o arquivo pertence ao pacote chamado aula01, usado para organizar os arquivos do projeto. Em seguida, é criada uma classe chamada **Main** (Maíusculo), pois em Java todo programa precisa estar dentro de uma classe. Dentro dessa classe está o **main** (Minúsculo), que é o ponto de início do programa, ou seja, é por ele que o Java começa a executar o código. Dentro do **main** (Minúsculo) existe a instrução **System.out.println("Hello World");**, que serve para printar essa mensagem no console.
+
+# Regras do java
+
+ - Case sensitive (**Diferenciação de letras minúsculas e maíusculas**);
+ - O programa precisa estar dentro de uma classe para funcionar.
