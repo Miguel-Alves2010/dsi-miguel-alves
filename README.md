@@ -111,27 +111,17 @@ Para confirmar que tudo está correto após todas essas etapas, apenas é necess
 
 ```java
 
-package aula01; //Mostra que o arquivo pertence ao pacote aula01;
+package  aula01;
 
   
 
-  
+public  class  Main {
 
-public  class  Main { //Identifica a criação de uma classe e seu nome
+public  static  void  main(String[] args) {
 
-  
-
-public  static  void  main(String[] args) { //ponto de início do programa
-
-  
-
-System.out.println("Hello World"); //serve para printar uma mensagem no console
-
-  
+System.out.println("Hello World");
 
 }
-
-  
 
 }
 
