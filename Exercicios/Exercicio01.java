@@ -5,52 +5,84 @@ import java.util.Scanner;
 public class Exercicio01 {
     public static void main(String[] args) {
         
-        
         Scanner input = new Scanner(System.in);
 
-        //Nome
         System.out.println("Digite o nome: ");
         String nome = input.nextLine();
 
-        //idade
         System.out.println("Digite a idade: ");
         int idade = input.nextInt();
 
-        //Horas trabalhadas
         System.out.println("Digite a quantidade de horas trabalhadas: ");
-        int horas = input.nextInt();
+        double horas = input.nextDouble();
 
-        //valor que recebe por hora
         System.out.println("Qual o valor recebido por hora?: ");
-        double valor = input.nextDouble();
+        double valorHora = input.nextDouble();
 
-        //filhos
-        System.out.println("Possui filhos?(true/false): ");
+        System.out.println("Possui filhos com idade inferior a 14 anos? (true/false): ");
         boolean filhos = input.nextBoolean();
 
+        int qtdFilhos = 0;
+
         if (filhos == true) {
-            System.out.println("Quantos possuem idade inferior a 14? ");
-            int qtdfilhos = input.nextInt();
-
-            familia = qtdfilhos * 50;
-
+            System.out.println("Quantos filhos possuem idade inferior a 14 anos?: ");
+            qtdFilhos = input.nextInt();
         }
 
-        //Tempo de serviço
-        System.out.println("Qual o tempo de serviço?: ");
-        float tmpServico = input.nextFloat();
+        System.out.println("Qual o tempo de serviço em anos?: ");
+        double tempoServico = input.nextDouble();
 
+        double valorSalarioFamilia = 50.00;
 
-        //Prints 😊👌
+        double salarioBruto = horas * valorHora;
+
+        double descontoInps = salarioBruto * 8.5 / 100;
+
+        double salarioFamilia = qtdFilhos * valorSalarioFamilia;
+
+        double impostoRenda = 0;
+
+        if (salarioBruto > 1500) {
+            impostoRenda = salarioBruto * 15 / 100;
+        } 
+        else if (salarioBruto > 500) {
+            impostoRenda = salarioBruto * 8 / 100;
+        } 
+        else {
+            impostoRenda = 0;
+        }
+
+        double adicional = 0;
+
+        if (idade > 40) {
+            adicional = salarioBruto * 2 / 100;
+        } 
+        else if (tempoServico > 15) {
+            adicional = salarioBruto * 3.5 / 100;
+        } 
+        else if (tempoServico <= 15 && tempoServico > 5 && idade > 30) {
+            adicional = salarioBruto * 1.5 / 100;
+        } 
+        else {
+            adicional = 0;
+        }
+
+        double totalDescontos = descontoInps + impostoRenda;
+
+        double salarioLiquido = salarioBruto - totalDescontos + salarioFamilia + adicional;
+
         System.out.println("Nome: " + nome);
         System.out.println("Idade: " + idade);
-        System.out.println("Horas por dia: " + horas);
-        System.out.println("Valor recebido por hora: " + valor);
-        System.out.println("Tempo de serviço: " + tmpServico);
+        System.out.println("Horas trabalhadas: " + horas);
+        System.out.println("Valor recebido por hora: " + valorHora);
+        System.out.println("Tempo de serviço: " + tempoServico);
 
-        if (filhos == true){
-            System.out.println("O salário familiar é, considerando 50 reais para cada filho com menos de 14 anos, de: " + qtdfilhos * 50);
-        }
-
+        System.out.println("Salário bruto: R$ " + salarioBruto);
+        System.out.println("Desconto do INPS: R$ " + descontoInps);
+        System.out.println("Imposto de renda: R$ " + impostoRenda);
+        System.out.println("Total de descontos: R$ " + totalDescontos);
+        System.out.println("Salário família: R$ " + salarioFamilia);
+        System.out.println("Adicional: R$ " + adicional);
+        System.out.println("Salário líquido: R$ " + salarioLiquido);
     }
 }
