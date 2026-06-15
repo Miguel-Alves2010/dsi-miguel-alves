@@ -23,22 +23,24 @@ public class Exercicio01 {
         boolean filhos = input.nextBoolean();
 
         int qtdFilhos = 0;
+        double salarioFtotal = 0;
 
         if (filhos == true) {
             System.out.println("Quantos filhos possuem idade inferior a 14 anos?: ");
             qtdFilhos = input.nextInt();
+
+            System.out.println("Qual o salário familiar?: ");
+            salarioFtotal = input.nextDouble();
         }
 
         System.out.println("Qual o tempo de serviço em anos?: ");
         double tempoServico = input.nextDouble();
 
-        double valorSalarioFamilia = 50.00;
 
         double salarioBruto = horas * valorHora;
 
         double descontoInps = salarioBruto * 8.5 / 100;
 
-        double salarioFamilia = qtdFilhos * valorSalarioFamilia;
 
         double impostoRenda = 0;
 
@@ -69,7 +71,7 @@ public class Exercicio01 {
 
         double totalDescontos = descontoInps + impostoRenda;
 
-        double salarioLiquido = salarioBruto - totalDescontos + salarioFamilia + adicional;
+        double salarioLiquido = salarioBruto - totalDescontos + salarioFtotal + adicional;
 
         System.out.println("Nome: " + nome);
         System.out.println("Idade: " + idade);
@@ -81,7 +83,7 @@ public class Exercicio01 {
         System.out.println("Desconto do INPS: R$ " + descontoInps);
         System.out.println("Imposto de renda: R$ " + impostoRenda);
         System.out.println("Total de descontos: R$ " + totalDescontos);
-        System.out.println("Salário família: R$ " + salarioFamilia);
+        System.out.println("Salário família: R$ " + salarioFtotal * qtdFilhos);
         System.out.println("Adicional: R$ " + adicional);
         System.out.println("Salário líquido: R$ " + salarioLiquido);
     }
