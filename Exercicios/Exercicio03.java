@@ -4,63 +4,73 @@ import java.util.Scanner;
 
 public class Exercicio03 {
     public static void main(String[] args) {
+        
+        Scanner input = new Scanner(System.in);
 
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o lado A: ");
+        double ladoA = input.nextDouble();
 
-        System.out.print("Insira o comprimento do lado A da forma: ");
-        double ladoA = scanner.nextDouble();
+        System.out.println("Digite o lado B: ");
+        double ladoB = input.nextDouble();
 
-        System.out.print("Insira o comprimento do lado B da forma: ");
-        double ladoB = scanner.nextDouble();
+        System.out.println("Digite o lado C: ");
+        double ladoC = input.nextDouble();
 
-        System.out.print("Insira o comprimento do lado C da forma: ");
-        double ladoC = scanner.nextDouble();
+        double originalA = ladoA;
+        double originalB = ladoB;
+        double originalC = ladoC;
 
-        double maiorLado;
-        double ladoMenor1;
-        double ladoMenor2;
+        double x;
 
-        if (ladoA >= ladoB && ladoA >= ladoC) {
-            maiorLado = ladoA;
-            ladoMenor1 = ladoB;
-            ladoMenor2 = ladoC;
-        }
-        else if (ladoB >= ladoA && ladoB >= ladoC) {
-            maiorLado = ladoB;
-            ladoMenor1 = ladoA;
-            ladoMenor2 = ladoC;
-        }
-        else {
-            maiorLado = ladoC;
-            ladoMenor1 = ladoA;
-            ladoMenor2 = ladoB;
+        if (ladoA < ladoB) {
+            x = ladoA;
+            ladoA = ladoB;
+            ladoB = x;
         }
 
-        System.out.println("Valores lidos: " + ladoA + ", " + ladoB + ", " + ladoC);
-        System.out.println("Maior lado: " + maiorLado);
-
-        if (maiorLado >= ladoMenor1 + ladoMenor2) {
-            System.out.println("Não é possível formar um triângulo com esses lados.");
-        }
-        else if (maiorLado * maiorLado == ladoMenor1 * ladoMenor1 + ladoMenor2 * ladoMenor2) {
-            System.out.println("Formou um triângulo retângulo.");
-        }
-        else if (maiorLado * maiorLado > ladoMenor1 * ladoMenor1 + ladoMenor2 * ladoMenor2) {
-            System.out.println("Formou um triângulo obtusângulo.");
-        }
-        else if (maiorLado * maiorLado < ladoMenor1 * ladoMenor1 + ladoMenor2 * ladoMenor2) {
-            System.out.println("Formou um triângulo acutângulo.");
+        if (ladoA < ladoC) {
+            x = ladoA;
+            ladoA = ladoC;
+            ladoC = x;
         }
 
-        if (maiorLado < ladoMenor1 + ladoMenor2) {
-            if (ladoA == ladoB && ladoA == ladoC) {
-                System.out.println("Também formou um triângulo equilátero.");
+        if (ladoB < ladoC) {
+            x = ladoB;
+            ladoB = ladoC;
+            ladoC = x;
+        }
+
+        System.out.println("Valores lidos: " + originalA + ", " + originalB + ", " + originalC);
+        System.out.println("Valores em ordem decrescente: " + ladoA + ", " + ladoB + ", " + ladoC);
+
+        if (ladoA >= ladoB + ladoC) {
+            System.out.println("Não formam triângulo algum.");
+        }
+
+        if (ladoA < ladoB + ladoC) {
+
+            if (ladoA * ladoA == ladoB * ladoB + ladoC * ladoC) {
+                System.out.println("Formam um triângulo retângulo.");
             }
-            else if (ladoA == ladoB || ladoA == ladoC || ladoB == ladoC) {
-                System.out.println("Também formou um triângulo isósceles.");
+
+            if (ladoA * ladoA > ladoB * ladoB + ladoC * ladoC) {
+                System.out.println("Formam um triângulo obtusângulo.");
             }
-            else {
-                System.out.println("Também formou um triângulo escaleno.");
+
+            if (ladoA * ladoA < ladoB * ladoB + ladoC * ladoC) {
+                System.out.println("Formam um triângulo acutângulo.");
+            }
+
+            if (ladoA == ladoB && ladoB == ladoC) {
+                System.out.println("Formam um triângulo equilátero.");
+            }
+
+            if ((ladoA == ladoB || ladoA == ladoC || ladoB == ladoC) && ladoA != ladoB) {
+                System.out.println("Formam um triângulo isósceles.");
+            }
+
+            if (ladoA != ladoB && ladoA != ladoC && ladoB != ladoC) {
+                System.out.println("Formam um triângulo escaleno.");
             }
         }
     }

@@ -2,76 +2,42 @@ package Exercicios;
 
 import java.util.Scanner;
 
-public class Exercicio03 {
+public class Exercicio02 {
     public static void main(String[] args) {
         
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Digite o lado A: ");
-        double ladoA = input.nextDouble();
+        System.out.println("Digite o código do funcionário: ");
+        int codigo = input.nextInt();
 
-        System.out.println("Digite o lado B: ");
-        double ladoB = input.nextDouble();
+        System.out.println("Digite o sexo do funcionário:");
+        System.out.println("1 - Masculino");
+        System.out.println("2 - Feminino");
+        int sexo = input.nextInt();
 
-        System.out.println("Digite o lado C: ");
-        double ladoC = input.nextDouble();
+        System.out.println("Digite o tempo de trabalho em anos: ");
+        int tempoServico = input.nextInt();
 
-        double originalA = ladoA;
-        double originalB = ladoB;
-        double originalC = ladoC;
+        System.out.println("Digite o salário: ");
+        double salario = input.nextDouble();
 
-        double x;
+        double bonus = 0;
 
-        if (ladoA < ladoB) {
-            x = ladoA;
-            ladoA = ladoB;
-            ladoB = x;
+        if (sexo == 1 && tempoServico > 15) {
+            bonus = salario * 20 / 100;
+        } 
+        else if (sexo == 2 && tempoServico > 10) {
+            bonus = salario * 25 / 100;
+        } 
+        else {
+            bonus = 100;
         }
 
-        if (ladoA < ladoC) {
-            x = ladoA;
-            ladoA = ladoC;
-            ladoC = x;
-        }
+        double salarioFinal = salario + bonus;
 
-        if (ladoB < ladoC) {
-            x = ladoB;
-            ladoB = ladoC;
-            ladoC = x;
-        }
-
-        System.out.println("Valores lidos: " + originalA + ", " + originalB + ", " + originalC);
-        System.out.println("Valores em ordem decrescente: " + ladoA + ", " + ladoB + ", " + ladoC);
-
-        if (ladoA >= ladoB + ladoC) {
-            System.out.println("Não formam triângulo algum.");
-        }
-
-        if (ladoA < ladoB + ladoC) {
-
-            if (ladoA * ladoA == ladoB * ladoB + ladoC * ladoC) {
-                System.out.println("Formam um triângulo retângulo.");
-            }
-
-            if (ladoA * ladoA > ladoB * ladoB + ladoC * ladoC) {
-                System.out.println("Formam um triângulo obtusângulo.");
-            }
-
-            if (ladoA * ladoA < ladoB * ladoB + ladoC * ladoC) {
-                System.out.println("Formam um triângulo acutângulo.");
-            }
-
-            if (ladoA == ladoB && ladoB == ladoC) {
-                System.out.println("Formam um triângulo equilátero.");
-            }
-
-            if ((ladoA == ladoB || ladoA == ladoC || ladoB == ladoC) && ladoA != ladoB) {
-                System.out.println("Formam um triângulo isósceles.");
-            }
-
-            if (ladoA != ladoB && ladoA != ladoC && ladoB != ladoC) {
-                System.out.println("Formam um triângulo escaleno.");
-            }
-        }
+        System.out.println("Código do funcionário: " + codigo);
+        System.out.println("Salário original: R$ " + salario);
+        System.out.println("Bônus recebido: R$ " + bonus);
+        System.out.println("Salário com bônus: R$ " + salarioFinal);
     }
 }
