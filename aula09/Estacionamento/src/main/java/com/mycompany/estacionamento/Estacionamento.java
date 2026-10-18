@@ -6,7 +6,7 @@ package com.mycompany.estacionamento;
 
 /**
  *
- * @author Camargo
+ * @author migmi
  */
 public class Estacionamento {
 
